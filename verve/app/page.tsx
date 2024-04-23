@@ -104,7 +104,7 @@ export default function Home() {
             >
               Login
             </Button>
-            <Button color="success" endContent={<CameraIcon />}>
+            <Button color="success" endContent={}>
               Take a photo
             </Button>
           </NavbarItem>
