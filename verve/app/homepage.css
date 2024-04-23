@@ -1,0 +1,24 @@
+
+.welcome-message{
+    font-size: 2rem;
+}
+.main-header-button {
+  margin-top: 1.5rem;
+}
+
+.verve-info-section-1 {
+  margin-top: 10rem;
+}
+
+.cover-image {
+  margin-right: 1rem;
+}
+
+.verve-info-section-text {
+  margin-left: 1.5rem;
+  width: 50%;
+}
+
+.signup-button{
+    margin-right: 1rem;
+}
