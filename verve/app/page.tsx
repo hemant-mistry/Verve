@@ -104,7 +104,7 @@ export default function Home() {
             >
               Login
             </Button>
-            <Button color="success" endContent={}>
+            <Button color="success">
               Take a photo
             </Button>
           </NavbarItem>
