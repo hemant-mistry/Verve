@@ -1,14 +1,20 @@
-
-.welcome-message{
-    font-size: 2rem;
+.main-container{
+  align-items: center;
 }
+
+.welcome-message {
+  font-size: 4rem;
+}
+
+.more-info-message {
+  font-size: 3rem;
+  text-align: left;
+}
+
 .main-header-button {
   margin-top: 1.5rem;
 }
 
-.verve-info-section-1 {
-  margin-top: 10rem;
-}
 
 .cover-image {
   margin-right: 1rem;
@@ -19,6 +25,55 @@
   width: 50%;
 }
 
-.signup-button{
-    margin-right: 1rem;
+.signup-button {
+  margin-right: 1rem;
+  margin-left: 1rem;
 }
+
+.card-container {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Adjust the gap between cards */
+  justify-content: center;
+}
+
+.card {
+  width: 20%; /* Set the width to 50% */
+  max-width: calc(50% - 20px); /* Adjust the max-width */
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.info-container{
+  margin-top: 8rem;
+}
+
+.bullet-list {
+  margin-top: 2rem;
+  margin-left: 3rem;
+}
+
+.bullet-list li {
+  margin-bottom: 0.5rem;
+  list-style-type: disc;
+  font-size: 1rem;
+}
+
+.main-footer{
+  margin-bottom: 1rem;
+  margin-top: 5rem;
+  border-top: 0.1px solid #D3D3D3;
+}
+
+
+.info-image {
+  margin-top: 1rem;
+  margin: auto;
+  margin-left: 2rem;
+}
+.more-info-message{
+  margin-right: 12rem;
+}
+
