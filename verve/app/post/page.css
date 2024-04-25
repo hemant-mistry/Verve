@@ -1,0 +1,30 @@
+
+.post-main-header{
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+}
+.post-heading-message{
+    font-size: 2rem;
+}
+
+.post-text-container{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-top: 5rem;
+    
+}
+
+.textarea-wrapper{
+    width: 50%;
+}
+
+.post-submit-button{
+    margin-top: 1rem;
+    float: right;
+}
+
+.post-checkbox{
+    margin-top: 1rem;
+}
