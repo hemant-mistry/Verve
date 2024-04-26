@@ -46,7 +46,7 @@ export default function Home() {
       >
         <div className="main-header-section text-center">
           <p className="text-center">
-            Currently unavailable on mobiles. We'll bring that up soon.
+            Currently unavailable on mobiles.
           </p>
         </div>
       </div>
@@ -57,7 +57,9 @@ export default function Home() {
     <>
       <Navbar>
         <NavbarBrand>
-          <p className="font-bold text-inherit">Verve</p>
+        <Link href="/">
+          <p className="font-bold text-inherit text-white">Verve</p>
+          </Link>
         </NavbarBrand>
         <NavbarContent as="div" justify="end">
           <Dropdown placement="bottom-end">
@@ -100,15 +102,11 @@ export default function Home() {
             >
               Sign Up
             </Button>
-            <Button
-              className="login-button"
-              as={Link}
-              color="primary"
-              href="#"
-              variant="light"
-            >
-              Login
-            </Button>
+            <Link href="/login">
+              <Button className="login-button" color="primary" variant="light">
+                Login
+              </Button>
+            </Link>
           </NavbarItem>
         </NavbarContent>
       </Navbar>
@@ -155,7 +153,7 @@ export default function Home() {
               <CardHeader className="pb-0 pt-2 px-4 flex-col justify-center">
                 <h4 className="font-bold text-large">Create posts</h4>
                 <p className="mt-2 text-tiny uppercase text-center">
-                  Verve let's you open up, write out. How your day went, writing
+                  Verve helps you open up, write out. How your day went, writing
                   always helps so does sharing.
                 </p>
               </CardHeader>
@@ -219,25 +217,22 @@ export default function Home() {
               </ul>
             </div>
             <div className="info-image">
-              <img src={whyIcon.src} width={360} alt="Why Journaling Icon" />
+              <Image src={whyIcon.src} width={360} alt="Why Journaling Icon" />
             </div>
           </div>
         </div>
-        
       </div>
       <footer className="main-footer py-6">
-      <div className="mt-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="md:flex md:items-center md:justify-between">
-          <div className="mt-4 md:mt-0 md:order-1 flex justify-center md:justify-start">
-
-            <p className="scroll-m-20 pb-2 text-2xl tracking-tight first:mt-0">
-              © {new Date().getFullYear()} Verve Beta . All rights
-              reserved.
-            </p>
+        <div className="mt-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="md:flex md:items-center md:justify-between">
+            <div className="mt-4 md:mt-0 md:order-1 flex justify-center md:justify-start">
+              <p className="scroll-m-20 pb-2 text-2xl tracking-tight first:mt-0">
+                © {new Date().getFullYear()} Verve Beta . All rights reserved.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    </footer>
+      </footer>
     </>
   );
 }
