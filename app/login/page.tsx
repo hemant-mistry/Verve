@@ -1,3 +1,6 @@
+"use client"
+import React from "react";
+
 import {
   Navbar,
   NavbarBrand,
@@ -12,14 +15,35 @@ import {
   Button,
   Textarea,
   Checkbox,
+  Input,
 } from "@nextui-org/react";
 import "./page.css";
-export default function Post() {
+import {EyeFilledIcon} from "./EyeFilledIcon";
+import {EyeSlashFilledIcon} from "./EyeSlashFilledIcon";
+import supabaseBrowser from "../../lib/supabase/browser";
+
+export default function Login() {
+  const [isVisible, setIsVisible] = React.useState(false);
+
+  const toggleVisibility = () => setIsVisible(!isVisible);
+
+  const handleLoginWithOAuth = (provider:"google") =>{
+    const supabase = supabaseBrowser();
+    supabase.auth.signInWithOAuth({
+      provider,
+      options:{
+        redirectTo:location.origin + "/login/callback",
+      }
+    })
+  }
+
   return (
     <>
       <Navbar>
         <NavbarBrand>
-          <p className="font-bold text-inherit">Verve</p>
+          <Link href="/">
+            <span className="font-bold text-inherit text-white">Verve</span>
+          </Link>
         </NavbarBrand>
         <NavbarContent as="div" justify="end">
           <Dropdown placement="bottom-end">
@@ -68,39 +92,55 @@ export default function Post() {
               as={Link}
               color="primary"
               href="#"
-              variant="light"
+              variant="flat"
             >
               Login
             </Button>
           </NavbarItem>
         </NavbarContent>
       </Navbar>
-      <div className="post-main-container">
-        <div className="post-main-header">
-          <h2 className="post-heading-message tracking-tight first:mt-0">
-            Hey Star, Tell me about your day
+      <div className="login-main-container">
+        <div className="login-header">
+          <h2 className="login-heading-message tracking-tight first:mt-0">
+            Start journaling with Verve..
           </h2>
-        </div>
-        <div className="post-text-container">
-          <div className="textarea-wrapper">
-            <Textarea
+          <div className="login-input-fields">
+            <Input
+              type="email"
+              placeholder="Enter your email"
+              className="email-input-field"
               variant="bordered"
-              placeholder="How was your day?"
-              className="textarea-container"
-              style={{ height: "15rem" }}
             />
-            <Checkbox className="post-checkbox" defaultSelected color="warning">
-              Flush after 24 hours?
-            </Checkbox>
-            <Button
-              className="post-submit-button"
-              color="primary"
-              variant="shadow"
-            >
-              Submit
-            </Button>
+            <Input
+              
+              variant="bordered"
+              placeholder="Enter your password"
+              endContent={
+                <button
+                  className="focus:outline-none"
+                  type="button"
+                  onClick={toggleVisibility}
+                >
+                  {isVisible ? (
+                    <EyeSlashFilledIcon className="text-2xl text-default-400 pointer-events-none" />
+                  ) : (
+                    <EyeFilledIcon className="text-2xl text-default-400 pointer-events-none" />
+                  )}
+                </button>
+              }
+              type={isVisible ? "text" : "password"}
+              className="password-input-field"
+            />
+             
           </div>
+          
         </div>
+        <Button className= "login-submit-button" color="primary" variant="shadow">
+        Login
+      </Button> 
+      <Button className= "login-google-button text-white" color="success" variant="shadow" onClick={()=>handleLoginWithOAuth("google")}>
+        Login with Google
+      </Button> 
       </div>
     </>
   );

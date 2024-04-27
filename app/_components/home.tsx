@@ -1,28 +1,21 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Button, Image } from "@nextui-org/react";
-import {
-  Navbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarItem,
-  Link,
-  DropdownItem,
-  DropdownTrigger,
-  Dropdown,
-  DropdownMenu,
-  Avatar,
-} from "@nextui-org/react";
+import { Button, Image,Link } from "@nextui-org/react";
+
 import { Card, CardHeader, CardBody } from "@nextui-org/react";
-import postIcon from "../public/images/post-icon.png";
-import growIcon from "../public/images/grow-icon.png";
-import encryptIcon from "../public/images/encrypt-icon.png";
-import whyIcon from "../public/images/why-icon.png";
+import postIcon from "../../public/images/post-icon.png";
+import growIcon from "../../public/images/grow-icon.png";
+import encryptIcon from "../../public/images/encrypt-icon.png";
+import whyIcon from "../../public/images/why-icon.png";
 
 import "./homepage.css";
 
+
+
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
+  
+
 
   useEffect(() => {
     const handleResize = () => {
@@ -38,6 +31,8 @@ export default function Home() {
     };
   }, []);
 
+ 
+
   if (isMobile) {
     return (
       <div
@@ -45,9 +40,7 @@ export default function Home() {
         style={{ marginTop: "20vh" }}
       >
         <div className="main-header-section text-center">
-          <p className="text-center">
-            Currently unavailable on mobiles.
-          </p>
+          <p className="text-center">Currently unavailable on mobiles.</p>
         </div>
       </div>
     );
@@ -55,61 +48,6 @@ export default function Home() {
 
   return (
     <>
-      <Navbar>
-        <NavbarBrand>
-        <Link href="/">
-          <p className="font-bold text-inherit text-white">Verve</p>
-          </Link>
-        </NavbarBrand>
-        <NavbarContent as="div" justify="end">
-          <Dropdown placement="bottom-end">
-            <DropdownTrigger>
-              <Avatar
-                isBordered
-                as="button"
-                className="hidden transition-transform"
-                color="secondary"
-                name="Jason Hughes"
-                size="sm"
-                src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
-              />
-            </DropdownTrigger>
-            <DropdownMenu aria-label="Profile Actions" variant="flat">
-              <DropdownItem key="profile" className="h-14 gap-2">
-                <p className="font-semibold">Signed in as</p>
-                <p className="font-semibold">zoey@example.com</p>
-              </DropdownItem>
-              <DropdownItem key="settings">My Settings</DropdownItem>
-              <DropdownItem key="team_settings">Team Settings</DropdownItem>
-              <DropdownItem key="analytics">Analytics</DropdownItem>
-              <DropdownItem key="system">System</DropdownItem>
-              <DropdownItem key="configurations">Configurations</DropdownItem>
-              <DropdownItem key="help_and_feedback">
-                Help & Feedback
-              </DropdownItem>
-              <DropdownItem key="logout" color="danger">
-                Log Out
-              </DropdownItem>
-            </DropdownMenu>
-          </Dropdown>
-          <NavbarItem>
-            <Button
-              className="signup-button"
-              as={Link}
-              color="primary"
-              href="#"
-              variant="flat"
-            >
-              Sign Up
-            </Button>
-            <Link href="/login">
-              <Button className="login-button" color="primary" variant="light">
-                Login
-              </Button>
-            </Link>
-          </NavbarItem>
-        </NavbarContent>
-      </Navbar>
       <div className="main-container flex flex-col items-center justify-center">
         <div
           className="flex justify-center items-center"
@@ -127,13 +65,15 @@ export default function Home() {
                 something extraordinary
               </p>
             </div>
-            <Button
-              className="main-header-button"
-              color="default"
-              variant="shadow"
-            >
-              Escape your reality
-            </Button>
+            <Link href="/post">
+              <Button
+                className="main-header-button"
+                color="default"
+                variant="shadow"
+              >
+                Escape your reality
+              </Button>
+            </Link>
           </div>
         </div>
         <br />

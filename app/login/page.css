@@ -1,0 +1,32 @@
+.login-main-container {
+  display: flex;
+  flex-direction: column; /* Stack items in a column */
+  align-items: center; /* Center items horizontally */
+  margin-top: 5rem;
+
+}
+
+.login-heading-message {
+  font-size: 2rem;
+}
+
+.email-input-field ,.password-input-field{
+  width: 80%;
+  margin: auto;
+  margin-top: 2rem;
+
+}
+
+.login-input-fields{
+  margin-top: 5rem;
+}
+
+.login-submit-button{
+  margin-top: 3rem;
+  width: 10%;
+}
+
+.login-google-button{
+  margin-top: 1rem;
+  width: 10%;
+}
