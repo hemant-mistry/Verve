@@ -1,53 +1,34 @@
-"use client"
-import {
-  Navbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarItem,
-  Link,
-  DropdownItem,
-  DropdownTrigger,
-  Dropdown,
-  DropdownMenu,
-  Avatar,
-  Button,
-  Textarea,
-  Checkbox,
-} from "@nextui-org/react";
+"use client";
 import "./page.css";
 import VerveNavbar from "../_components/navbar";
 import { checkAuth, logout } from "../../lib/supabase/auth";
+import { createNote } from "./actions";
+import NewPost from "./ui/NewPost";
+import { useState } from "react";
 export default function Post() {
+  const [text, settext] = useState("");
+  const [flushAfter24Hours, setFlushAfter24Hours] = useState(false);
+
+  const handleNoteSubmit = async () => {
+    console.log("Clicked the submit button!");
+    createNote(text,flushAfter24Hours);
+  };
+
+  function handleTextChange(data: string) {
+    settext(data);
+  }
+  // Function to handle checkbox state change
+  function handleCheckboxChange(checked: boolean) {
+    setFlushAfter24Hours(checked);
+  }
   return (
     <>
-    <VerveNavbar checkAuth={checkAuth} logout={logout} />
-      <div className="post-main-container">
-        <div className="post-main-header">
-          <h2 className="post-heading-message tracking-tight first:mt-0">
-            Hey Star, Tell me about your day
-          </h2>
-        </div>
-        <div className="post-text-container">
-          <div className="textarea-wrapper">
-            <Textarea
-              variant="bordered"
-              placeholder="How was your day?"
-              className="textarea-container"
-              minRows = {8}
-            />
-            <Checkbox className="post-checkbox" defaultSelected color="warning">
-              Flush after 24 hours?
-            </Checkbox>
-            <Button
-              className="post-submit-button"
-              color="primary"
-              variant="shadow"
-            >
-              Submit
-            </Button>
-          </div>
-        </div>
-      </div>
+      <VerveNavbar checkAuth={checkAuth} logout={logout} />
+      <NewPost
+        onSubmit={handleNoteSubmit}
+        handleTextChange={handleTextChange}
+        handleCheckboxChange={handleCheckboxChange}
+      />
     </>
   );
 }
